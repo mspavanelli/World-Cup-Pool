@@ -4,7 +4,7 @@ Um bolão de campeonato de futebol para amigos: participantes registram palpites
 
 ## Estado atual
 
-O projeto está em discovery e fundações. A primeira entrega será um bolão de futebol pequeno e funcional, priorizando regras explícitas e um domínio coerente em vez de complexidade técnica prematura.
+O acesso por link de e-mail está disponível para desenvolvimento local. Os demais fluxos do bolão serão construídos sobre essa identidade verificada.
 
 ## MVP
 
@@ -48,7 +48,9 @@ Requisitos: Node.js 24, pnpm 12.4.2 e Docker com Compose.
 4. Execute as migrações com `pnpm db:migrate`.
 5. Inicie interface e API com `pnpm dev`.
 
-A interface fica em <http://localhost:5173>, a API responde em <http://localhost:3000/api/health> e a caixa de testes Mailpit fica em <http://localhost:8025>. O Vite encaminha as chamadas a `/api` para a API durante o desenvolvimento. O Mailpit está disponível para os futuros fluxos de acesso por e-mail; ainda não há envio de mensagens neste ticket.
+A interface fica em <http://localhost:5173>, a API responde em <http://localhost:3000/api/health> e a caixa de testes Mailpit fica em <http://localhost:8025>. O Vite encaminha as chamadas a `/api` para a API durante o desenvolvimento. Informe um e-mail na interface, abra a mensagem no Mailpit e use o link para confirmar o acesso. O link vale por 15 minutos e só pode ser usado uma vez; a sessão dura até 30 dias e pode ser encerrada em **Sair**.
+
+Por padrão, a API envia e-mails para o Mailpit em `localhost:1025` e monta os links para `http://localhost:5173`. Ajuste `SMTP_HOST`, `SMTP_PORT` e `APP_ORIGIN` no arquivo `.env` se usar outras portas. O envio SMTP atual é para desenvolvimento local; a escolha de um serviço de envio para publicação continua pendente.
 
 O comando `pnpm db:generate` gera uma migração SQL a partir das alterações no esquema Drizzle. Revise e versione o SQL gerado antes de aplicar `pnpm db:migrate`. A migração inicial estabelece o histórico sem criar tabelas de domínio.
 
