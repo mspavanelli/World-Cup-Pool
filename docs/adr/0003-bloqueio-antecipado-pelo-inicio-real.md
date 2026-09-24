@@ -1,0 +1,3 @@
+# Bloquear palpites quando o início real for registrado antecipadamente
+
+O horário previsto normalmente determina o prazo do palpite, mas, se o administrador registrar que a partida começou antes dele, os palpites são bloqueados no momento desse registro para evitar novas previsões durante o jogo. O início real informado pode ser anterior ao registro; nesse caso, palpites que o sistema aceitou antes do registro continuam válidos, pois invalidá-los retroativamente puniria participantes que seguiram o prazo então visível. Essa escolha exige registrar os dois momentos e mantém o bloqueio definitivo após qualquer um deles.
