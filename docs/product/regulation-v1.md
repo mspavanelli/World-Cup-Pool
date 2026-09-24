@@ -6,8 +6,12 @@ Este documento define as regras compartilhadas por todos os bolões criados sob 
 
 - Exceto o administrador que escolhe participar na criação do bolão, a pessoa solicita entrada e precisa ser aprovada pela administração.
 - A entrada é permitida somente antes do início previsto da primeira partida do bolão.
+- Se o início previsto da primeira partida mudar antes do prazo de entrada, o prazo acompanha o novo horário. Depois de vencido, uma alteração posterior não reabre a entrada.
+- Se a primeira partida for cancelada antes de vencer o prazo de entrada, o prazo passa a ser o início previsto da próxima partida válida. Se já venceu, o cancelamento não reabre a entrada.
 - Uma pessoa pode ocupar apenas uma participação no mesmo bolão.
-- Um participante pode ser desativado. Nesse caso, deixa de registrar novos palpites, mas seus palpites, pontos e posição anteriores permanecem no histórico.
+- Um participante pode ser desativado. Nesse caso, deixa de registrar ou alterar palpites, mas os já registrados continuam válidos para pontuação; a pessoa permanece identificada no ranking atual e no histórico, com seus pontos preservados.
+- O administrador pode reativar um participante desativado para palpites futuros. Desativação e reativação registram responsável, momento e motivo, sem alterar palpites ou pontos anteriores.
+- Uma pessoa pode participar de vários bolões, mas possui no máximo uma participação em cada um. Nome de exibição, palpites e posição pertencem a cada bolão.
 
 ## Palpites
 
@@ -15,7 +19,9 @@ Este documento define as regras compartilhadas por todos os bolões criados sob 
 - O palpite contém dois placares inteiros não negativos, um para cada equipe.
 - O participante pode substituir seu palpite enquanto o prazo estiver aberto; somente a versão vigente no prazo é considerada.
 - A ausência de palpite concede zero ponto. O sistema não cria palpites automaticamente.
-- O prazo de uma partida é seu horário de início previsto, avaliado pelo relógio do sistema e sem tolerância.
+- O prazo de uma partida é seu horário de início previsto, avaliado pelo relógio do sistema e sem tolerância. Se o administrador registrar seu início real antes desse horário, os palpites são bloqueados imediatamente.
+- O início real pode ser informado depois de ter ocorrido. Nesse caso, o bloqueio antecipado vale a partir do registro no sistema: palpites aceitos antes desse registro não são invalidados retroativamente.
+- O início real, a suspensão e a retomada de uma partida são registrados pelo administrador. Suspensão e retomada não reabrem os palpites.
 - Se o horário mudar antes do prazo vigente, o prazo acompanha o novo horário.
 - Se o prazo já tiver vencido, uma alteração posterior de horário não reabre os palpites.
 - Antes do prazo, apenas o autor pode conhecer o conteúdo do palpite. Nem a administração pode consultar palpites de terceiros.
@@ -25,9 +31,15 @@ Este documento define as regras compartilhadas por todos os bolões criados sob 
 
 Para pontuação, vale o placar ao fim do tempo regulamentar e de seus acréscimos. Prorrogação e disputa de pênaltis não fazem parte do resultado regulamentar.
 
+Depois que um participante registrar um palpite para uma partida, ou depois de seu início real, suas equipes não podem ser substituídas. Um confronto com equipes diferentes deve ser cadastrado como outra partida.
+
+O administrador pode cadastrar novas partidas com início previsto futuro enquanto o bolão estiver aberto, inclusive depois de sua primeira partida começar. Não pode cadastrar partida cujo início previsto já tenha passado.
+
+Uma partida cadastrada por engano pode ser excluída apenas antes do primeiro palpite e de seu início real. Depois disso, o registro permanece e, caso não haja resultado regulamentar, pode ser classificado como sem pontuação.
+
 ## Pontuação
 
-Cada palpite recebe exatamente uma das pontuações abaixo:
+Para cada participante em uma partida com resultado regulamentar, a pontuação é determinada assim, mesmo que não exista palpite:
 
 | Situação | Pontos |
 | --- | ---: |
@@ -50,6 +62,8 @@ Para um resultado regulamentar de `1 × 1`:
 - `1 × 0` recebe 0 ponto.
 
 Toda pontuação deve ser explicável pelo palpite, pelo resultado regulamentar e pela regra aplicada.
+
+Antes do registro do resultado regulamentar, a pontuação da partida está pendente. Esse estado é distinto de zero ponto calculado após o resultado.
 
 ## Ranking e desempate
 
@@ -75,6 +89,8 @@ Uma partida cancelada, anulada ou decidida por WO sem resultado regulamentar jog
 - não conta para critérios de desempate;
 - não transforma um placar administrativo em resultado regulamentar.
 
+Se uma partida já pontuada for anulada, seus pontos e placares exatos deixam de contar no ranking. O resultado anteriormente registrado e a anulação permanecem visíveis no histórico, com motivo, responsável e momento da mudança.
+
 Se a partida for disputada novamente desde o início, a nova ocorrência possui prazo e palpites próprios.
 
 ## Correção de resultados
@@ -83,6 +99,7 @@ Se a partida for disputada novamente desde o início, a nova ocorrência possui 
 - A correção pode ocorrer a qualquer momento, inclusive após o encerramento do bolão.
 - Cada correção registra o valor anterior, o novo valor, o motivo, o responsável e o momento da alteração.
 - Depois da correção, todas as pontuações afetadas e o ranking são recalculados.
+- Uma anulação equivocada pode ser revertida pela administração, inclusive após o encerramento do bolão, restabelecendo o resultado regulamentar e a pontuação com motivo e histórico auditável.
 - O histórico da correção é visível aos participantes. Publicamente, o responsável pode ser apresentado como “administração”.
 - O Regulamento v1 não exige notificações externas sobre correções.
 
