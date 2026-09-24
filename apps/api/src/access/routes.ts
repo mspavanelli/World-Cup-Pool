@@ -1,9 +1,9 @@
 import type { FastifyInstance } from 'fastify';
-import type { AccessDependencies } from './application.js';
+import { SESSION_LIFETIME_MS, type AccessDependencies } from './application.js';
 import { createAccess } from './application.js';
 
 const cookieName = 'bolao_session';
-const sessionAgeSeconds = 30 * 24 * 60 * 60;
+const sessionAgeSeconds = SESSION_LIFETIME_MS / 1000;
 const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 const tokenPattern = /^[A-Za-z0-9_-]{43}$/;
 

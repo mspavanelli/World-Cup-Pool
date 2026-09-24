@@ -4,6 +4,7 @@ import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import { registerAccessRoutes } from './access/routes.js';
 import { sendLocalLink } from './access/mail.js';
+import { createAccessStore } from './access/infrastructure.js';
 
 export function buildApp(
   databaseUrl: string,
@@ -21,7 +22,7 @@ export function buildApp(
   registerAccessRoutes(
     app,
     {
-      pool,
+      store: createAccessStore(pool),
       sendLink: options.sendLink ?? sendLocalLink,
       appOrigin:
         options.appOrigin ?? process.env.APP_ORIGIN ?? 'http://localhost:5173',

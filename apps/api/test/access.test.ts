@@ -104,13 +104,17 @@ describe('email access with PostgreSQL', () => {
 
   it('rejects expired links without creating a session', async () => {
     const token = await issueLink();
+    const before = await pool.query(
+      'SELECT id FROM sessions WHERE person_id IN (SELECT id FROM people WHERE email = $1)',
+      [email],
+    );
     instant = new Date(instant.getTime() + 15 * 60 * 1000);
     expect((await confirm(token)).statusCode).toBe(400);
     const sessions = await pool.query(
       'SELECT id FROM sessions WHERE person_id IN (SELECT id FROM people WHERE email = $1)',
       [email],
     );
-    expect(sessions.rowCount).toBe(1);
+    expect(sessions.rowCount).toBe(before.rowCount);
   });
 
   it('expires sessions after 30 days and gives the same response for existing addresses', async () => {
