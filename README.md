@@ -28,6 +28,7 @@ Pagamentos, apostas, aplicativos mobile nativos, provedores externos de resultad
 ## Navegação do projeto
 
 - [Visão de produto](docs/product/vision.md)
+- [Recorte do MVP](docs/product/mvp.md)
 - [Regulamento v1](docs/product/regulation-v1.md)
 - [Roadmap do MVP](https://github.com/users/mspavanelli/projects/1)
 - [Issues abertas](https://github.com/mspavanelli/World-Cup-Pool/issues)

@@ -4,6 +4,10 @@ Este contexto descreve a linguagem do bolão de campeonato de futebol e das regr
 
 ## Language
 
+**Administrador**:
+Pessoa responsável por administrar um bolão. Pode também ser participante, sujeita às mesmas regras de palpite, pontuação e ranking dos demais participantes.
+_Avoid_: Dono do bolão, superusuário
+
 **Regulamento v1**:
 Primeira versão do conjunto de regras compartilhado por todos os bolões criados enquanto ela for a versão vigente. Não varia entre esses bolões.
 _Avoid_: Regras do bolão, configuração do regulamento
@@ -13,7 +17,7 @@ Conjunto de regras vinculado permanentemente a um bolão em sua criação e usad
 _Avoid_: Regulamento atual, regras mais recentes
 
 **Participante**:
-Pessoa cuja solicitação de entrada no bolão foi aprovada antes da primeira partida abrangida por ele. Quando desativada, permanece identificada no histórico do bolão.
+Pessoa admitida no bolão antes da primeira partida: por aprovação de sua solicitação de entrada ou, quando é o administrador, por escolha na criação. Quando desativada, permanece identificada no histórico do bolão.
 _Avoid_: Jogador, apostador, usuário do bolão
 
 **Palpite**:
