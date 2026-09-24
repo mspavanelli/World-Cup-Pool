@@ -4,7 +4,7 @@ Este documento define as regras compartilhadas por todos os bolões criados sob 
 
 ## Participação
 
-- A pessoa solicita entrada no bolão e precisa ser aprovada pela administração.
+- Exceto o administrador que escolhe participar na criação do bolão, a pessoa solicita entrada e precisa ser aprovada pela administração.
 - A entrada é permitida somente antes do início previsto da primeira partida do bolão.
 - Uma pessoa pode ocupar apenas uma participação no mesmo bolão.
 - Um participante pode ser desativado. Nesse caso, deixa de registrar novos palpites, mas seus palpites, pontos e posição anteriores permanecem no histórico.
