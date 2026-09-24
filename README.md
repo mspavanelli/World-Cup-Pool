@@ -43,8 +43,8 @@ O trabalho é acompanhado nas GitHub Issues e no roadmap. Cada issue possui uma 
 Requisitos: Node.js 24, pnpm 12.4.2 e Docker com Compose.
 
 1. Instale as dependências com `pnpm install`.
-2. Inicie os serviços com `docker compose up -d` e aguarde `docker compose ps` mostrar o PostgreSQL como saudável.
-3. Crie a configuração local com `cp .env.example .env` e carregue as variáveis no shell com `set -a; source .env; set +a`.
+2. Inicie os serviços com `pnpm docker:up` e aguarde `pnpm docker:ps` mostrar o PostgreSQL como saudável.
+3. Crie a configuração local com `cp .env.example .env`. O arquivo `.env` é carregado automaticamente pela API e pelos comandos de banco; não é necessário exportar as variáveis no shell.
 4. Execute as migrações com `pnpm db:migrate`.
 5. Inicie interface e API com `pnpm dev`.
 
@@ -52,9 +52,16 @@ A interface fica em <http://localhost:5173>, a API responde em <http://localhost
 
 O comando `pnpm db:generate` gera uma migração SQL a partir das alterações no esquema Drizzle. Revise e versione o SQL gerado antes de aplicar `pnpm db:migrate`. A migração inicial estabelece o histórico sem criar tabelas de domínio.
 
+### Comandos Docker
+
+- `pnpm docker:up` inicia PostgreSQL e Mailpit em segundo plano.
+- `pnpm docker:ps` mostra o estado dos serviços e a saúde do PostgreSQL.
+- `pnpm docker:logs` acompanha os logs dos serviços; use `Ctrl+C` para parar de acompanhar.
+- `pnpm docker:down` para e remove os contêineres e a rede do Compose. Os dados do PostgreSQL permanecem no volume local.
+
 ### Verificação
 
-Com o PostgreSQL em execução e `DATABASE_URL` carregada, execute:
+Com o PostgreSQL em execução, execute:
 
 ```sh
 pnpm lint
@@ -65,4 +72,4 @@ pnpm test
 pnpm --filter @bolao/web build
 ```
 
-`pnpm test` inclui um teste de integração da API contra o PostgreSQL real. A CI executa as mesmas verificações em cada pull request. Para encerrar os serviços locais, use `docker compose down`; o volume do banco é preservado.
+`pnpm test` inclui um teste de integração da API contra o PostgreSQL real. A CI executa as mesmas verificações em cada pull request. Para encerrar os serviços locais, use `pnpm docker:down`; o volume do banco é preservado.

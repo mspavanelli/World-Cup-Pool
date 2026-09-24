@@ -1,3 +1,4 @@
+import '../src/local-env.js';
 import { afterAll, describe, expect, it } from 'vitest';
 import { buildApp } from '../src/app.js';
 

@@ -4,6 +4,10 @@
   "packageManager": "pnpm@12.4.2",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:ps": "docker compose ps",
+    "docker:logs": "docker compose logs -f",
     "lint": "eslint apps --max-warnings=0",
     "format": "prettier --write apps .github README.md package.json pnpm-workspace.yaml compose.yaml eslint.config.mjs",
     "format:check": "prettier --check apps .github README.md package.json pnpm-workspace.yaml compose.yaml eslint.config.mjs",

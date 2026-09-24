@@ -1,3 +1,4 @@
+import './local-env.js';
 import { buildApp } from './app.js';
 
 const databaseUrl = process.env.DATABASE_URL;
