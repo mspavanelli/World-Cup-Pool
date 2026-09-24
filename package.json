@@ -1,0 +1,24 @@
+{
+  "name": "world-cup-pool",
+  "private": true,
+  "packageManager": "pnpm@12.4.2",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "lint": "eslint apps --max-warnings=0",
+    "format": "prettier --write apps .github README.md package.json pnpm-workspace.yaml compose.yaml eslint.config.mjs",
+    "format:check": "prettier --check apps .github README.md package.json pnpm-workspace.yaml compose.yaml eslint.config.mjs",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r --if-present test",
+    "db:generate": "pnpm --filter @bolao/api db:generate",
+    "db:migrate": "pnpm --filter @bolao/api db:migrate"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "eslint-plugin-vue": "^10.11.0",
+    "globals": "^17.12.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.1"
+  }
+}

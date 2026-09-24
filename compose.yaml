@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: bolao
+      POSTGRES_PASSWORD: bolao
+      POSTGRES_DB: bolao
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U bolao -d bolao']
+      interval: 2s
+      timeout: 2s
+      retries: 15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - '8025:8025'
+      - '1025:1025'
+
+volumes:
+  postgres_data:
