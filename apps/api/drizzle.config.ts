@@ -1,3 +1,4 @@
+import './src/local-env.js';
 import { defineConfig } from 'drizzle-kit';
 
 const databaseUrl = process.env.DATABASE_URL;
